@@ -49,8 +49,8 @@ def on_button_click(text):
             update_display(current_display + text)
             state["new_number"] = False
     
-    # Handle operator buttons (+ and -)
-    elif text in ["+", "-"]:
+    # Handle operator buttons (+, -, and *)
+    elif text in ["+", "-", "*"]:
         current_value = float(current_display)
         
         # If there's a pending operation, calculate it first
@@ -96,6 +96,8 @@ def calculate(previous, current, operation):
         return previous + current
     elif operation == "-":
         return previous - current
+    elif operation == "*":
+        return previous * current
     return current
 
 
@@ -119,7 +121,7 @@ buttons = [
     ["4", "5", "6"],
     ["1", "2", "3"],
     ["+/-", "0", "."],
-    ["-", "+", "="],
+    ["-", "+", "*", "="],
 ]
 
 for r, row in enumerate(buttons):
